@@ -13,10 +13,81 @@ This repository provides exclusively the **13 core analytical Python modules (`0
 > **Zenodo Archive:** [10.5281/zenodo.24310941](https://doi.org/10.5281/zenodo.24310941)  
 > **GitHub Repository:** <https://github.com/SezginTunca/threatened-seafood-trade-governance>
 
-International seafood trade generates over four-fifths of the economic value of legal cross-border trade in wild fauna and flora, yet customs schedules classify marine species largely as bulk commodities rather than biological entities. Linking global bilateral trade declarations with IUCN extinction-risk assessments, CITES regulatory timelines, World Customs Organization (WCO) Harmonized System (HS) nomenclature audits, marine life-history traits, and sovereign institutional indicators, these 13 sequential analytical modules implement every econometric regression, bioeconomic differential-equation solver, game-theoretic calibration, and constrained optimization model reported in the Manuscript (`Equations 1–13b`, `Tables 1–2`) and Supplementary Information (`Equations S1a–S5c`, `Supplementary Tables S1–S20`).
+International seafood trade generates over four-fifths of the economic value of legal cross-border commerce in wild fauna and flora, yet customs schedules classify marine species largely as bulk commodities rather than biological entities. Linking global bilateral trade declarations with IUCN extinction-risk assessments, CITES regulatory timelines, World Customs Organization (WCO) Harmonized System (HS) nomenclature audits, marine life-history traits, and sovereign institutional indicators, these 13 sequential analytical modules implement every econometric regression, bioeconomic differential-equation solver, game-theoretic calibration, and constrained optimization model reported in the Manuscript (`Equations 1–13b`, `Tables 1–2`) and Supplementary Information (`Equations S1a–S5c`, `Supplementary Tables S1–S20`).
+
+---
+
+## Data-Sharing Policy & Scope
 
 > [!IMPORTANT]
-> **Data-Sharing & Scope Policy:** **No raw or derived datasets are distributed in this repository or its Zenodo archive**, and no auxiliary figure-rendering or document-formatting utilities are included. Only the 13 core analytical Python modules (`01`–`13`) are shared. All primary datasets are publicly accessible from the institutional repositories listed in the [Public Data Acquisition Guide](#public-data-acquisition-guide), and all aggregated empirical summaries supporting the study appear in the Manuscript and Supplementary Information.
+> **Data Distribution Notice:**
+> **In strict adherence to repository scope, institutional terms of use, and open-science best practices, no raw microdata or processed empirical datasets are distributed in this GitHub repository or in the Zenodo archive.**
+>
+> This distribution policy ensures full respect for the proprietary and institutional terms of third-party public data providers (UN Comtrade, CEPII, IUCN, FAO, World Bank, WTO, OECD, GFW, and RAM Legacy). All aggregated empirical summaries, regression tables, coefficient estimates, taxonomic resolution matrices, and optimization frontiers necessary to verify and evaluate the conclusions of this study are published directly in the main article (`Tables 1–2`) and the Supplementary Information (`Supplementary Tables S1–S20`).
+>
+> Researchers seeking to reconstruct the full empirical panels from scratch can obtain the underlying primary data directly from the official institutional repositories detailed below.
+
+---
+
+## Description of the Data Used
+
+The empirical, bioeconomic, and optimization frameworks in this study integrate twelve primary institutional datasets spanning international commerce, conservation status, international treaties, biological life histories, and sovereign governance:
+
+### 1. Global Bilateral Trade Declarations (UN Comtrade & CEPII BACI HS92)
+* **UN Comtrade Database** ([https://comtradeplus.un.org/](https://comtradeplus.un.org/)):
+  * **Coverage:** Annual bilateral trade declarations across 210 reporting jurisdictions spanning 37 years (`1988`–`2024`).
+  * **Nomenclature:** All 315 six-digit subheadings under Harmonized System (HS) Chapter 03 (*Fish and crustaceans, molluscs and other aquatic invertebrates*; 249 subheadings across revisions HS 1988, 1996, 2002, 2007, 2012, 2017, and 2022) and Chapter 16 (*Preparations of meat, of fish or of crustaceans, molluscs or other aquatic invertebrates*; 66 subheadings under HS 1604 and 1605).
+  * **Variables:** Exporter ISO3, Importer ISO3, HS 6-digit commodity code, trade flow (export, import, re-export), trade value (current USD, CIF for imports, FOB for exports), net mass (kg), and supplementary quantity units.
+  * **Processing:** Export and import values are deflated to constant 2024 USD using the US Bureau of Labor Statistics Consumer Price Index for All Urban Consumers (CPI-U, base $2024 = 313.0$, `Equation 3`). Keystroke recording errors are filtered at the 99.9th percentile of annual unit values.
+* **CEPII BACI HS92 Bilateral Database** ([http://www.cepii.fr/CEPII/en/bdd_modele/bdd_modele_item.asp?id=37](http://www.cepii.fr/CEPII/en/bdd_modele/bdd_modele_item.asp?id=37)):
+  * **Coverage:** Harmonized bilateral trade matrix from `1995` to `2024` under the HS 1992 classification.
+  * **Function:** Provides reconciled transaction values and quantities with estimated CIF/FOB transport-cost wedges, serving as the benchmark for Structural Gravity PPML estimations and bilateral mirror trade discrepancy models (`Equations 7–10`).
+
+### 2. Extinction Risk & Conservation Status (IUCN Red List of Threatened Species)
+* **Source:** IUCN Red List of Threatened Species, API v4, Release 2024-2 ([https://www.iucnredlist.org/](https://www.iucnredlist.org/)).
+* **Coverage:** Complete taxonomic and conservation assessments for 767 marine and diadromous species.
+* **Threat Categories:** Critically Endangered (CR, $n=77$), Endangered (EN, $n=182$), Vulnerable (VU, $n=282$), and Near Threatened (NT, $n=226$).
+* **Extracted Variables:** Global threat category, quantitative assessment criteria (e.g., A2bd, B1ab), population trajectory (decreasing, stable, increasing, unknown), depth distribution, FAO major fishing area ranges, and documented biological use and trade stressor codes.
+
+### 3. International Endangered Species Treaty Schedules (CITES Appendices)
+* **Source:** CITES Secretariat & Checklist of CITES Species ([https://cites.org/](https://cites.org/) and [https://checklist.cites.org/](https://checklist.cites.org/)).
+* **Coverage:** Historical listings from Conference of the Parties CoP1 (`1975`) through CoP19 (Panama City, `2022`; entering into force `2023`–`2024`).
+* **Variables:** Appendix classification (Appendix I, II, or III), exact entry-into-force dates, taxonomic listing resolution (species-specific, whole genus, whole family, or entire order, including Acipenseriformes, Anguillidae, Sphyrnidae, Carcharhinidae, Mobulidae, and Holothuriidae), annual export quotas, and trade reservation notices.
+
+### 4. Customs Classification & Legal Nomenclature (World Customs Organization - WCO)
+* **Source:** World Customs Organization ([https://www.wcoomd.org/](https://www.wcoomd.org/)).
+* **Coverage:** Historical legal texts of the Harmonized System across all six completed review cycles (HS 1988, 1996, 2002, 2007, 2012, 2017, and 2022), plus the formally adopted Seventh Review Cycle amendments for HS 2028 (WCO Council Document NG0304Ba, approved June 2024).
+* **Attributes:** Complete statutory descriptions for all 315 HS6 subheadings in Chapters 03 and 16, taxonomic scope of statutory descriptions, processing-form hierarchies (live, fresh/chilled, frozen, fillets, dried, salted, smoked, prepared/preserved), and legal explanatory notes.
+
+### 5. Marine Biological Life Histories & Trophic Ecology (FishBase & SeaLifeBase)
+* **Sources:** FishBase ([https://www.fishbase.se/](https://www.fishbase.se/)) and SeaLifeBase ([https://www.sealifebase.ca/](https://www.sealifebase.ca/)).
+* **Parameters:** Fractional trophic level ($TL \in [2.0, 5.0]$) derived from stomach-content and food-web models, von Bertalanffy growth parameters (asymptotic length $L_\infty$, curvature parameter $K_v$), natural mortality rate $M$, age at first maturity $t_m$, intrinsic rate of population increase $r$, carrying capacity $K$, and reproductive resilience ratings.
+* **Role:** Feeds the wild-aquaculture differential-equation bifurcations (`Equations S4a–S4d`) and national Mean Trophic Level (MTL) and Trophic Balance of Trade (TBT) balances (`Equations 11–11b`).
+
+### 6. Fisheries Production, Food Balances & Live-Weight Conversion (FAO FishStatJ)
+* **Source:** Food and Agriculture Organization of the United Nations (FAO, [https://www.fao.org/fishery/en/statistics](https://www.fao.org/fishery/en/statistics)).
+* **Modules:**
+  * *Global Production:* Capture fishery landings and aquaculture production tonnage by species, reporting state, and FAO fishing zone (`1950`–`2024`).
+  * *Technical Conversion Factors (FAO Fisheries Circular No. 847):* Species- and preservation-specific Live-Weight Equivalent (LWE) conversion coefficients used to transform processed, filleted, dried, and canned customs trade weights back into primary live biomass equivalents (`Equation 11b`).
+  * *Border Interceptions:* Regulatory rejection and food safety consignment interception records across major importing markets.
+
+### 7. Macroeconomic Indicators, Governance & Fisheries Wealth (World Bank & QoG)
+* **World Bank DataBank** ([https://databank.worldbank.org/](https://databank.worldbank.org/)):
+  * *World Development Indicators (WDI):* Real GDP per capita (constant 2015 USD), total population, land area, and trade openness across 210 sovereign jurisdictions.
+  * *Worldwide Governance Indicators (WGI):* Six standardized governance dimensions: Regulatory Quality, Rule of Law, Government Effectiveness, Control of Corruption, Political Stability, and Voice and Accountability.
+  * *Changing Wealth of Nations (CWON 2021):* Fisheries natural capital asset values, net resource rents, and capitalized marine wealth accounts (`Equation 11c`).
+* **Quality of Government (QoG) Institute Standard Dataset** ([https://www.gu.se/en/quality-government](https://www.gu.se/en/quality-government)):
+  * Sovereign institutional quality, judicial impartiality, and administrative bureaucratic capacity.
+
+### 8. Trade Policy, Tariffs & Non-Tariff Measures (WTO & UNCTAD)
+* **Source:** World Trade Organization Tariff Download Facility ([https://tariffdata.wto.org/](https://tariffdata.wto.org/)) and Integrated Trade Intelligence Portal (I-TIP).
+* **Metrics:** Most-Favored-Nation (MFN) applied ad valorem and specific tariffs, bound tariff rates, preferential trade agreement duty schedules, and counts of active Sanitary and Phytosanitary (SPS) and Technical Barriers to Trade (TBT) measures for Chapters 03 and 16.
+
+### 9. Distant-Water Fleet Tracking & Stock Assessment Status (GFW & RAM Legacy)
+* **Global Fishing Watch (GFW)** ([https://globalfishingwatch.org/](https://globalfishingwatch.org/)):
+  * Automatic Identification System (AIS) tracking of refrigerated cargo (carrier) vessels, at-sea transshipment events, distant-water fishing (DWF) fleet operations inside foreign EEZs and on the high seas, and foreign vessel port visits.
+* **RAM Legacy Stock Assessment Database (v4.44)** ([https://www.ramlegacy.org/](https://www.ramlegacy.org/)):
+  * Time series of stock biomass relative to maximum sustainable yield ($B/B_{MSY}$), fishing mortality rate relative to $F_{MSY}$ ($U/U_{MSY}$), and biological reference points across commercially exploited global fish stocks.
 
 ---
 
@@ -65,21 +136,28 @@ International seafood trade generates over four-fifths of the economic value of 
 
 ---
 
-## Public Data Acquisition Guide
+## Local Directory Configuration & Replication
 
-All underlying data sources are publicly accessible from their institutional repositories:
-1. **UN Comtrade (`1988`–`2024`)**: <https://comtradeplus.un.org/>
-2. **CEPII BACI HS92 (`1995`–`2024`)**: <http://www.cepii.fr/CEPII/en/bdd_modele/bdd_modele_item.asp?id=37>
-3. **IUCN Red List & CITES**: <https://www.iucnredlist.org/> and <https://cites.org/>
-4. **World Customs Organization (WCO)**: <https://www.wcoomd.org/>
-5. **FishBase & SeaLifeBase**: <https://www.fishbase.se/> and <https://www.sealifebase.ca/>
-6. **Institutional Governance, Production & Stock Databases**: FAO FishStatJ (<https://www.fao.org/fishery/en/statistics>), World Bank WDI/WGI/CWON (<https://databank.worldbank.org/>), Quality of Government (<https://www.gu.se/en/quality-government>), WTO Tariff Download Facility (<https://tariffdata.wto.org/>), OECD (<https://www.oecd.org/>), Global Fishing Watch (<https://globalfishingwatch.org/>), and RAM Legacy Stock Assessment Database v4.44 (<https://www.ramlegacy.org/>).
+If executing the scripts locally with downloaded institutional microdata, organize local directories as follows:
 
-Place bilateral panels in `data/raw/` and point `EXTERNAL_DB_ROOT` to local institutional database downloads before executing `bash run_all.sh`.
+```text
+├── data/
+│   ├── raw/
+│   │   ├── comtrade/               # Raw UN Comtrade annual bilateral CSV files (1988-2024)
+│   │   ├── baci/                   # CEPII BACI HS92 CSV files (1995-2024)
+│   │   ├── iucn/                   # IUCN Red List marine species JSON/CSV extracts
+│   │   ├── cites/                  # CITES Checklist species & Appendices CoP1-CoP19 records
+│   │   ├── wco/                    # WCO Harmonized System nomenclature legal texts & HS 2028 amendments
+│   │   └── external/               # FAO FishStatJ, World Bank (WDI, WGI, CWON), WTO, OECD, GFW, RAM Legacy
+```
 
----
+Before running, set the environmental variable pointing to your external microdata root:
 
-## Computational Environment & Replication
+```bash
+export EXTERNAL_DB_ROOT="/path/to/your/external/databases"
+```
+
+### Computational Environment Setup
 
 Verified under **Python 3.12**:
 
@@ -100,7 +178,7 @@ bash run_all.sh
 
 ## Citation & License
 
-Released under the [MIT License](LICENSE).
+This replication codebase is distributed under the terms of the [MIT License](LICENSE).
 
 ```bibtex
 @software{tunca_2026_threatened_seafood_trade_governance,
