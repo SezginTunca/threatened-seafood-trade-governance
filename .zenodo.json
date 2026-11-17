@@ -1,0 +1,44 @@
+{
+  "title": "Replication Codebase: Customs aggregation and scarcity pricing drive a trillion-dollar global threatened seafood trade",
+  "description": "<p>Clean, reproducible Python analytical and econometric codebase for the study: <em>\"Customs aggregation and scarcity pricing drive a trillion-dollar global threatened seafood trade\"</em> (submitted to <em>Nature Sustainability</em>).</p><p>This repository contains exclusively the 20 sequential Python scripts (<code>01</code>–<code>20</code>) implementing species-to-HS6 conservation concordances, Taxonomic Aggregation Ratio (TAR) and Species Customs Resolution Index (SCRI) audits, 37-year UN Comtrade and 30-year CEPII BACI Dual-IV scarcity pricing regressions, coupled wild-aquaculture bioeconomic differential-equation bifurcation analysis and Pontryagin stochastic optimal control, Comparative Interrupted Time Series and zero-retaining Structural Gravity PPML models, high-dimensional mirror evasion fixed-effects regressions and Stackelberg customs inspection equilibria, live-weight-equivalent marine trophic accounting, non-circular 0–1 binary mixed-integer linear programming (MILP) tariff disaggregation optimization, and bilevel port network interdiction with Monte Carlo Shapley allocation. No raw or derived datasets are distributed; all underlying trade, biological, treaty, and governance records are publicly accessible from institutional repositories.</p><p>Author: Sezgin Tunca (Department of Business and Sustainability, University of Southern Denmark, Odense, Denmark; ORCID: 0000-0001-6840-1466).</p><p>Repository: <a href=\"https://github.com/SezginTunca/threatened-seafood-trade-governance\">https://github.com/SezginTunca/threatened-seafood-trade-governance</a></p>",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "mit",
+  "version": "1.0.0",
+  "language": "eng",
+  "creators": [
+    {
+      "name": "Tunca, Sezgin",
+      "affiliation": "Department of Business and Sustainability, University of Southern Denmark, Odense, Denmark",
+      "orcid": "0000-0001-6840-1466"
+    }
+  ],
+  "keywords": [
+    "seafood trade",
+    "customs aggregation",
+    "Harmonized System",
+    "IUCN Red List",
+    "CITES",
+    "scarcity pricing",
+    "Anthropogenic Allee Effect",
+    "gravity PPML",
+    "bioeconomic modeling",
+    "mixed-integer linear programming",
+    "bilevel network interdiction",
+    "trophic balance of trade"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/SezginTunca/threatened-seafood-trade-governance",
+      "relation": "isSupplementTo",
+      "resource_type": "software",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.24310941",
+      "relation": "isVersionOf",
+      "scheme": "doi"
+    }
+  ],
+  "notes": "Code-only replication repository containing no raw or derived datasets. Associated manuscript submitted to Nature Sustainability."
+}
