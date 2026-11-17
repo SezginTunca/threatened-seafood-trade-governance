@@ -7,15 +7,8 @@ Author: Sezgin Tunca (Department of Business and Sustainability, University of S
 
 Computes value- and volume-based Taxonomic Aggregation Ratios (TAR; Eqs. 1-2),
 the cardinality-based Species Customs Resolution Index (SCRI; Eq. 2b / Eq. S1a),
-processing-tier resolution compression, and a line-by-line legal evaluation of
-the adopted WCO HS 2028 nomenclature text.
-
-Outputs:
-  - data/derived/annual_global_customs_aggregation_tar.csv
-  - data/derived/bloc_customs_aggregation_summary.csv
-  - data/derived/processing_form_aggregation_summary.csv
-  - data/derived/global_hs6_customs_scri_audit.csv
-  - data/derived/wco_hs2028_legal_audit.csv
+processing-tier resolution compression, and a line-by-line legal audit of
+adopted WCO HS 2028 amendments (Supplementary Table S13).
 """
 import re
 import pandas as pd
