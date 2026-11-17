@@ -5,16 +5,10 @@ Module 02: Bilateral Trade Panel Construction and Real Price Deflation (Eq. 3)
 Study: Customs aggregation and scarcity pricing drive a trillion-dollar global threatened seafood trade
 Author: Sezgin Tunca (Department of Business and Sustainability, University of Southern Denmark, Odense, Denmark; ORCID: 0000-0001-6840-1466)
 
-Processes the harmonized bilateral UN Comtrade panel (1988-2024), attaches
+Processes the harmonized bilateral trade panel (1988-2024), attaches
 conservation and trophic concordances, deflates trade values to constant 2024
 US dollars using the US BLS CPI-U series (2024 = 313.0), filters unit-value
-outliers, and exports derived panel summaries.
-
-Outputs (written locally when bilateral data are present):
-  - data/derived/annual_global_conservation_trade_summary.csv
-  - data/derived/annual_taxa_threat_tier_summary.csv
-  - data/derived/bilateral_conservation_flows_summary.csv
-  - data/derived/global_threatened_taxa_bilateral_panel.parquet
+keystroke outliers, and writes analytical summary outputs (Supplementary Tables S2-S4).
 """
 import sys
 import pandas as pd
