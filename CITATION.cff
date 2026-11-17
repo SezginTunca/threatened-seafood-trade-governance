@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this analytical codebase in your research, please cite the software repository and the associated study."
+title: "Replication Codebase: Customs aggregation and scarcity pricing drive a trillion-dollar global threatened seafood trade"
+version: 1.0.0
+doi: "10.5281/zenodo.24310941"
+date-released: 2026-11-17
+license: MIT
+repository-code: "https://github.com/SezginTunca/threatened-seafood-trade-governance"
+authors:
+  - family-names: "Tunca"
+    given-names: "Sezgin"
+    orcid: "https://orcid.org/0000-0001-6840-1466"
+    affiliation: "Department of Business and Sustainability, University of Southern Denmark, Odense, Denmark"
+keywords:
+  - "seafood trade"
+  - "customs aggregation"
+  - "Harmonized System"
+  - "IUCN Red List"
+  - "CITES"
+  - "scarcity pricing"
+  - "structural gravity PPML"
+  - "bioeconomic modeling"
+  - "mixed-integer linear programming"
+  - "bilevel network interdiction"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Tunca"
+      given-names: "Sezgin"
+      orcid: "https://orcid.org/0000-0001-6840-1466"
+  title: "Customs aggregation and scarcity pricing drive a trillion-dollar global threatened seafood trade"
+  journal: "Nature Sustainability"
+  year: 2026
+  notes: "Manuscript submitted"
