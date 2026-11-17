@@ -5,13 +5,10 @@ Module 04: Expanded 767-Species IUCN Marine Conservation and HS6 Mapping
 Study: Customs aggregation and scarcity pricing drive a trillion-dollar global threatened seafood trade
 Author: Sezgin Tunca (Department of Business and Sustainability, University of Southern Denmark, Odense, Denmark; ORCID: 0000-0001-6840-1466)
 
-Constructs the 767-species global catalog of commercially harvested marine and
-diadromous taxa assessed as Critically Endangered (CR), Endangered (EN),
-Vulnerable (VU), or Near Threatened (NT), classifying each taxon into
-species-specific, genus/family-aggregated, or omnibus residual HS6 headings.
-
-Outputs:
-  - data/derived/expanded_iucn_threatened_taxa_catalog.csv
+Constructs the 767-species global catalog of commercially traded marine and
+diadromous taxa assessed as Critically Endangered, Endangered, Vulnerable, or
+Near Threatened, mapping each taxon to species-specific, genus/family-aggregated,
+or omnibus residual HS6 subheadings.
 """
 import os
 import sys
