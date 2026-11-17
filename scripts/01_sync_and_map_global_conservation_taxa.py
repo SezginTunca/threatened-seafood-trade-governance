@@ -5,12 +5,9 @@ Module 01: Taxonomic Concordance and Regulatory Mapping Across Customs Schedules
 Study: Customs aggregation and scarcity pricing drive a trillion-dollar global threatened seafood trade
 Author: Sezgin Tunca (Department of Business and Sustainability, University of Southern Denmark, Odense, Denmark; ORCID: 0000-0001-6840-1466)
 
-Links 6-digit World Customs Organization (WCO) Harmonized System (HS) seafood
-commodity codes in Chapters 03 and 16 to IUCN Red List extinction-risk
-assessments and CITES Appendices I-III regulatory histories.
-
-Outputs (written locally when bilateral data are present):
-  - data/derived/global_hs6_conservation_concordance.csv
+Links 6-digit WCO Harmonized System (HS) Chapters 03 and 16 seafood commodity
+lines to IUCN Red List assessments and CITES Appendices I-III listing histories
+(Supplementary Table S1).
 """
 import os
 import sqlite3
