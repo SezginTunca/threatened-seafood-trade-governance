@@ -1,19 +1,12 @@
 #!/usr/bin/env python3
 """
-Module 05: Taxonomic Invisibility and Commercial Exposure Audit (Tables S5-S6)
-==============================================================================
+Module 05: Taxonomic Customs Resolution and Commercial Exposure Audit (Table S10)
+=================================================================================
 Study: Customs aggregation and scarcity pricing drive a trillion-dollar global threatened seafood trade
 Author: Sezgin Tunca (Department of Business and Sustainability, University of Southern Denmark, Odense, Denmark; ORCID: 0000-0001-6840-1466)
 
-Quantifies customs resolution gaps and 37-year commercial exposure across all
-767 IUCN-assessed threatened and Near Threatened marine species and exports the
-formatted concordance and family exposure summaries.
-
-Outputs:
-  - data/derived/threatened_taxa_customs_invisibility_summary.csv
-  - data/derived/threatened_family_exposure_metrics.csv
-  - tables/Supplementary_Table_S05_Expanded_IUCN_Threatened_Seafood_Concordance.{csv,md,tex}
-  - tables/Supplementary_Table_S06_Threatened_Taxa_Customs_Invisibility_Audit.{csv,md,tex}
+Quantifies species-level monitoring rates, customs pooling exposure, and 37-year
+commercial value/mass exposure across all 767 IUCN-assessed marine species.
 """
 import sys
 import pandas as pd
@@ -23,9 +16,6 @@ from pathlib import Path
 # Paths
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DERIVED = BASE_DIR / "data" / "derived"
-TABLES_DIR = BASE_DIR / "tables"
-TABLES_DIR.mkdir(parents=True, exist_ok=True)
-
 EXPANDED_CATALOG = DATA_DERIVED / "expanded_iucn_threatened_taxa_catalog.csv"
 ANNUAL_TRADE_SUMMARY = DATA_DERIVED / "annual_global_conservation_trade_summary.csv"
 CONCORDANCE_CSV = DATA_DERIVED / "global_hs6_conservation_concordance.csv"
@@ -133,52 +123,11 @@ def main():
     else:
         cat_trade = pd.DataFrame()
 
-    # 3. Export Supplementary Table S05 (Complete Concordance Matrix)
-    print("\n3. Generating Supplementary Table S05: Expanded Master Concordance...")
-    table_s05_csv = TABLES_DIR / "Supplementary_Table_S05_Expanded_IUCN_Threatened_Seafood_Concordance.csv"
-    table_s05_md = TABLES_DIR / "Supplementary_Table_S05_Expanded_IUCN_Threatened_Seafood_Concordance.md"
-    table_s05_tex = TABLES_DIR / "Supplementary_Table_S05_Expanded_IUCN_Threatened_Seafood_Concordance.tex"
-
-    # Select representative subset for MD display, full for CSV
-    df_taxa["Primary_HS6_Code"] = df_taxa["Primary_HS6_Code"].astype(str).str.zfill(6)
-    df_taxa.to_csv(table_s05_csv, index=False)
-
-    sample_taxa = df_taxa.groupby("Taxonomic_Group").head(3)[[
-        "Scientific_Name", "Class", "Taxonomic_Group", "Red_List_Category",
-        "CITES_Status", "Primary_HS6_Code", "Customs_Reporting_Visibility"
-    ]]
-
-    with open(table_s05_md, "w", encoding="utf-8") as f:
-        f.write("### Supplementary Table S5. Expanded Master Concordance of IUCN-Threatened Marine & Diadromous Seafood Taxa\n\n")
-        f.write(f"*Note: This table displays an illustrative excerpt across taxonomic groups. The full dataset ({len(df_taxa)} species) is available in machine-readable format in `data/derived/expanded_iucn_threatened_taxa_catalog.csv`.*\n\n")
-        f.write(sample_taxa.to_markdown(index=False))
-        f.write("\n")
-
-    # LaTeX export for S05 with proper underscore escaping
-    sample_taxa.to_latex(table_s05_tex, index=False, escape=True, caption="Excerpt of Expanded Master Concordance of Threatened Seafood Taxa")
-    print(f"   -> Saved S05 files (CSV: {len(df_taxa)} rows, MD excerpt: {len(sample_taxa)} rows)")
-
-    # 4. Export Supplementary Table S06 (Invisibility & Exposure Audit)
-    print("\n4. Generating Supplementary Table S06: Customs Invisibility Audit...")
-    table_s06_csv = TABLES_DIR / "Supplementary_Table_S06_Threatened_Taxa_Customs_Invisibility_Audit.csv"
-    table_s06_md = TABLES_DIR / "Supplementary_Table_S06_Threatened_Taxa_Customs_Invisibility_Audit.md"
-    table_s06_tex = TABLES_DIR / "Supplementary_Table_S06_Threatened_Taxa_Customs_Invisibility_Audit.tex"
-
-    df_grp_with_total.to_csv(table_s06_csv, index=False)
-
-    with open(table_s06_md, "w", encoding="utf-8") as f:
-        f.write("### Supplementary Table S6. Global Audit of Customs Invisibility across Threatened Marine & Diadromous Seafood Taxa\n\n")
-        f.write(df_grp_with_total.to_markdown(index=False))
-        f.write("\n")
-
-    df_grp_with_total.to_latex(table_s06_tex, index=False, escape=True, caption="Global Audit of Customs Invisibility across Threatened Marine Taxa")
-    print(f"   -> Saved S06 files to {table_s06_md.name}")
-
     print("\n" + "=" * 80)
     print("EVALUATION COMPLETED SUCCESSFULLY")
     print(f"  Total Threatened Taxa Analyzed: {len(df_taxa)}")
-    print(f"  Species-Level Monitoring Rate:  {tot_row['Species_Level_Monitoring_Rate_Pct']}% (Only 3 species!)")
-    print(f"  Customs Invisibility Rate:      {tot_row['Customs_Invisibility_Rate_Pct']}% (764 of 767 species invisible!)")
+    print(f"  Species-Level Monitoring Rate:  {tot_row['Species_Level_Monitoring_Rate_Pct']}% (3 species)")
+    print(f"  Customs Pooling Rate:           {tot_row['Customs_Invisibility_Rate_Pct']}% (764 of 767 species)")
     print("=" * 80)
 
 
