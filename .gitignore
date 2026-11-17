@@ -1,0 +1,33 @@
+# Environments and OS artifacts
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.env
+
+# Raw and derived datasets (never distributed in the code repository)
+data/
+config/
+tables/
+figures/
+archive/
+submission*/
+*.csv
+*.parquet
+*.xlsx
+*.xls
+*.db
+*.sqlite
+*.geojson
+*.gpkg
+*.shp
+
+# Generated documents and archives
+*.docx
+*.pdf
+*.tex
+*.aux
+*.log
+*.zip
